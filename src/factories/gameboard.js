@@ -22,13 +22,22 @@ const randomShip = (ship) => {
     endCoordinate = randomX + length - 1;
   }
 
-  return { randomX, randomY, endCoordinate };
+  return { randomX, randomY, endCoordinate, randomdirection };
 };
 
 let board = new GameBoard();
 console.log(board);
-const ship = new Ship('cruiser');
+const ship = new Ship('battleship');
 const random = randomShip(ship);
-board[random.randomX][random.randomY] = 1;
+if (random.randomdirection === 'v') {
+  for (let y = random.randomY; y < random.endCoordinate; y++) {
+    board[random.randomX][y] = 1;
+  }
+} else {
+  for (let x = random.randomX; x < random.endCoordinate; x++) {
+    board[x][random.randomY] = 1;
+  }
+}
+
 console.log(board);
 export default GameBoard;
