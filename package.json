@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint ./src --fix",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -15,12 +17,12 @@
   "keywords": [
     "weather"
   ],
-  "author": "Carlos Del Real",
+  "author": "Carlos Del Real & António Fernandes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/carloshdelreal/weather/issues"
+    "url": "https://github.com/carloshdelreal/battleship/issues"
   },
-  "homepage": "https://github.com/carloshdelreal/weather#readme",
+  "homepage": "https://github.com/carloshdelreal/battleship/#readme",
   "dependencies": {
     "css-loader": "^3.2.0",
     "date-fns": "^2.8.0",
