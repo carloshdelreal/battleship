@@ -23,8 +23,8 @@ const Ship = (shipType) => {
     return damage.every((x) => x == true);
   };
 
-  const hit = () => {
-    damage += 1;
+  const hit = (number) => {
+    damage[number] = true;
   };
 
   return {
