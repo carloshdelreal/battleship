@@ -1,0 +1,50 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "Todo List project in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint ./src --fix",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloshdelreal/weather.git"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "Carlos Del Real",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carloshdelreal/weather/issues"
+  },
+  "homepage": "https://github.com/carloshdelreal/weather#readme",
+  "dependencies": {
+    "css-loader": "^3.2.0",
+    "date-fns": "^2.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "fibers": "^4.0.2",
+    "file-loader": "^4.2.0",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.0",
+    "sass": "^1.23.3",
+    "style-loader": "^1.0.0"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.3.1",
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier": "1.19.1",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
