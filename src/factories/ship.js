@@ -1,4 +1,4 @@
-const Ship = (ship_type) => {
+const Ship = (shipType) => {
   const shipClasses = {
     battleship: {
       length: 4,
@@ -17,16 +17,22 @@ const Ship = (ship_type) => {
     },
   };
 
-  const { length } = shipClasses[ship_type];
-
-  let ship_damage = new Array(length).fill(false);
-
-  const hit = () => {
-    ship_damage += 1;
+  const { length } = shipClasses[shipType];
+  let damage = Array(length).fill(false);
+  const isSunk = () => {
+    return damage.every((x) => x == true);
   };
 
-  const isSunk = () => ship_damage === length;
-  return { length };
+  const hit = () => {
+    damage += 1;
+  };
+
+  return {
+    length,
+    damage,
+    hit,
+    isSunk,
+  };
 };
 
 export default Ship;
