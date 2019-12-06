@@ -1,6 +1,7 @@
 import Ship from './ship';
 
-const GameBoard = () => {
+const GameBoard = (testing) => {
+  const testingMode = testing;
   const ship = {
     battleship: Ship('battleship'),
     submarine: Ship('submarine'),
@@ -8,12 +9,30 @@ const GameBoard = () => {
     cruiser: Ship('cruiser'),
     patrolBoat: Ship('patrolBoat'),
   };
-  const positions = {};
 
-  function createPositions() {}
-  setPosition('battleship', createShipCoords('battleship', 0, 0, 'v'));
-  setPosition('submarine', createShipCoords('submarine', 1, 0, 'h'));
-  setPosition('carrier'), createShipCoords('carrier', 0, 0, 'h');
+  const positions = {};
+  const positionCoordinates = [];
+
+  if (testingMode) {
+    setPosition('battleship', createShipCoords('battleship', 0, 0, 'v'));
+    setPosition('submarine', createShipCoords('submarine', 1, 0, 'h'));
+    setPosition('carrier'), createShipCoords('carrier', 0, 0, 'h');
+  }
+
+  createPositions();
+
+  function createPositions() {
+    for (let i = 0; ship.length > i; i = +1) {
+      do {
+        const { X, Y, directionStr } = randomShip();
+        const coordinates = createShipCoords(ship[i].type, X, Y, directionStr);
+        returned = setPosition(ship[i].type, coordinates);
+        if (returned != null) {
+          positionCoordinates.push(coordinates);
+        }
+      } while (returned == null);
+    }
+  }
 
   function setPosition(shipToSet, coords) {
     if (coords == null) return null;
@@ -53,20 +72,20 @@ const GameBoard = () => {
     }
   }
 
-  return { positions, ship };
+  return { positions, ship, positionCoordinates };
 };
 
 const randomShip = () => {
   const direction = ['v', 'h'];
-  const randomX = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
-  const randomY = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
+  const X = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
+  const Y = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
 
   const randomdirection =
     direction[Math.floor(Math.random() * (1 - 0 + 1)) + 0];
 
   const directionStr = direction[randomdirection];
 
-  return { randomX, randomY, directionStr };
+  return { X, Y, directionStr };
 };
 
 export default GameBoard;

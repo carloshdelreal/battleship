@@ -6,7 +6,7 @@ test('Set Carrier position Horizontal on 0,0', () => {
 });
 
 test('set battleship position 0,0 vertical', () => {
-  const gameBoard = new GameBoard();
+  const gameBoard = new GameBoard(true);
   const expected = {
     0: {
       0: { battleship: 0 },

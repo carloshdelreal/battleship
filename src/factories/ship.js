@@ -16,7 +16,7 @@ const Ship = (shipType) => {
       length: 2,
     },
   };
-
+  const type = shipType;
   const { length } = shipClasses[shipType];
   let damage = Array(length).fill(false);
   const isSunk = () => {
