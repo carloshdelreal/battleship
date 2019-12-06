@@ -1,7 +1,6 @@
 import Ship from './ship';
 
 const GameBoard = (testing) => {
-  const testingMode = testing;
   const ship = {
     battleship: Ship('battleship'),
     submarine: Ship('submarine'),
@@ -13,22 +12,34 @@ const GameBoard = (testing) => {
   const positions = {};
   const positionCoordinates = [];
 
-  if (testingMode) {
+  if (testing) {
     setPosition('battleship', createShipCoords('battleship', 0, 0, 'v'));
     setPosition('submarine', createShipCoords('submarine', 1, 0, 'h'));
     setPosition('carrier'), createShipCoords('carrier', 0, 0, 'h');
+  } else {
+    createPositions();
   }
 
-  createPositions();
+  const hit = (x, y) => {
+    if (positions[x] == null || positions[x][y] == null) return false;
+
+    const hitted = positions[x][y];
+    ship[hitted.shipType].damage[hitted.index] = true;
+    return true;
+  };
 
   function createPositions() {
-    for (let i = 0; ship.length > i; i = +1) {
+    const types = Object.keys(ship);
+    let returned = null;
+    for (let i = 0; types.length > i; i += 1) {
       do {
         const { X, Y, directionStr } = randomShip();
-        const coordinates = createShipCoords(ship[i].type, X, Y, directionStr);
-        returned = setPosition(ship[i].type, coordinates);
+        // console.log(`x: ${X}, y:${Y}, direction: ${directionStr}`);
+        const coordinates = createShipCoords(types[i], X, Y, directionStr);
+        returned = setPosition(types[i], coordinates);
+        // console.log(`Returned: ${returned}`);
         if (returned != null) {
-          positionCoordinates.push(coordinates);
+          positionCoordinates.push(...coordinates);
         }
       } while (returned == null);
     }
@@ -40,10 +51,10 @@ const GameBoard = (testing) => {
       if (positions[coords[i].x] == null) {
         positions[coords[i].x] = {};
       }
-      const location = {};
-      location[shipToSet] = i;
+      const location = { shipType: shipToSet, index: i };
       positions[coords[i].x][coords[i].y] = location;
     }
+    return 1;
   }
 
   function createShipCoords(shipType, x, y, direction) {
@@ -63,7 +74,7 @@ const GameBoard = (testing) => {
       for (let i = 0; length > i; i += 1) {
         if (x + i >= 10 || y >= 10) {
           return null;
-        } else if (positions[x] != null && positions[x + i][y] != null) {
+        } else if (positions[x + i] != null && positions[x + i][y] != null) {
           return null;
         }
         coords.push({ x: x + i, y: y });
@@ -72,7 +83,7 @@ const GameBoard = (testing) => {
     }
   }
 
-  return { positions, ship, positionCoordinates };
+  return { positions, ship, positionCoordinates, hit };
 };
 
 const randomShip = () => {
@@ -80,10 +91,7 @@ const randomShip = () => {
   const X = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
   const Y = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
 
-  const randomdirection =
-    direction[Math.floor(Math.random() * (1 - 0 + 1)) + 0];
-
-  const directionStr = direction[randomdirection];
+  const directionStr = direction[Math.floor(Math.random() * (1 - 0 + 1)) + 0];
 
   return { X, Y, directionStr };
 };

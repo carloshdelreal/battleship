@@ -32,6 +32,7 @@ const Ship = (shipType) => {
     damage,
     hit,
     isSunk,
+    type,
   };
 };
 
