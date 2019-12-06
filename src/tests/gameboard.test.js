@@ -47,7 +47,29 @@ test('Hit all the positions', () => {
   const gameBoard = new GameBoard();
   for (let i = 0; gameBoard.positionCoordinates.length > i; i += 1) {
     const { x, y } = gameBoard.positionCoordinates[i];
-    gameBoard.hit(x, y);
+    expect(gameBoard.hit(x, y)).toBe(true);
   }
   expect(gameBoard.ship.battleship.isSunk()).toBe(true);
+});
+
+test('Hit all the boats and all of them are sunk', () => {
+  const gameBoard = new GameBoard();
+  for (let i = 0; gameBoard.positionCoordinates.length > i; i += 1) {
+    const { x, y } = gameBoard.positionCoordinates[i];
+    gameBoard.hit(x, y);
+  }
+  const types = Object.keys(gameBoard.ship);
+  for (let i = 0; types.length > i; i += 1) {
+    expect(gameBoard.ship[types[i]].isSunk()).toBe(true);
+  }
+});
+
+test('get false when hitting an empty location', () => {
+  const gameBoard = new GameBoard(true);
+  expect(gameBoard.hit(5, 5)).toBe(false);
+});
+
+test('get true when hitting occupied position', () => {
+  const gameBoard = new GameBoard(true);
+  expect(gameBoard.hit(0, 0)).toBe(true);
 });

@@ -24,7 +24,7 @@ const GameBoard = (testing) => {
     if (positions[x] == null || positions[x][y] == null) return false;
 
     const hitted = positions[x][y];
-    ship[hitted.shipType].damage[hitted.index] = true;
+    ship[hitted.shipType].hit(hitted.index);
     return true;
   };
 
