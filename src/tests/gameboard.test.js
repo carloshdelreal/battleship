@@ -1,32 +1,19 @@
 import GameBoard from '../factories/gameboard';
-import expectExport from 'expect';
 
-test('Create the default GameBoard and check if it has 10 Rows', () => {
-  const b = new GameBoard();
-  expect(b.length).toEqual(10);
+test('Set Carrier position Horizontal on 0,0', () => {
+  const gameBoard = new GameBoard();
+  expect(gameBoard.ship.battleship.isSunk()).toBe(false);
 });
 
-test('Create the default GameBoard and check if it has 10 columns', () => {
-  const b = new GameBoard();
-  for (let i = 0; i <= 9; i++) {
-    expect(b[i].length).toEqual(10);
-  }
-});
-
-test('Check if each board cell has been correctly initialized', () => {
-  const b = new GameBoard();
-  for (let i = 0; i <= 9; i++) {
-    for (let j = 0; j < 10; j++) {
-      expect(b[i][j]).toEqual(0);
-    }
-  }
-});
-
-test('Test if Board receives a new number in random direction', () => {
-  const b = new GameBoard();
-  for (let i = 0; i <= 9; i++) {
-    for (let j = 0; j < 10; j++) {
-      expect(b[i][j]).toEqual(0);
-    }
-  }
+test('set battleship position 0,0 vertical', () => {
+  const gameBoard = new GameBoard();
+  const expected = {
+    0: {
+      0: { battleship: 0 },
+      1: { battleship: 1 },
+      2: { battleship: 2 },
+      3: { battleship: 3 },
+    },
+  };
+  expect(gameBoard.positions).toEqual(expected);
 });

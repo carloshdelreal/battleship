@@ -12,7 +12,7 @@ const Ship = (shipType) => {
     cruiser: {
       length: 3,
     },
-    PatrolBoat: {
+    patrolBoat: {
       length: 2,
     },
   };

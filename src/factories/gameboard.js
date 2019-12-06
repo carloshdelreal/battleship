@@ -1,11 +1,53 @@
 import Ship from './ship';
 
 const GameBoard = () => {
-  let board = [];
-  for (let i = 0; i < 10; i++) {
-    board.push(new Array(10).fill(0));
+  const ship = {
+    battleship: Ship('battleship'),
+    submarine: Ship('submarine'),
+    carrier: Ship('carrier'),
+    cruiser: Ship('cruiser'),
+    patrolBoat: Ship('patrolBoat'),
+  };
+  const positions = {};
+  setPosition(
+    'battleship',
+    createShipCoords({ x: 0, y: 0 }, 'v', ship.battleship.length),
+  );
+
+  function setPosition(shipToSet, coords) {
+    for (let i = 0; coords.length > i; i += 1) {
+      if (positions[coords[i].x] == null) {
+        positions[coords[i].x] = {};
+      }
+      const location = {};
+      location[shipToSet] = i;
+      positions[coords[i].x][coords[i].y] = location;
+    }
   }
-  return board;
+
+  function createShipCoords(startCoords, direction, length) {
+    const { x, y } = startCoords;
+    let coords = [];
+    if (direction == 'v') {
+      for (let i = 0; length > i; i += 1) {
+        if (x >= 10 || y + i >= 10) {
+          return null;
+        }
+        coords.push({ x: x, y: y + i });
+      }
+      return coords;
+    } else if (direction == 'h') {
+      for (let i = 0; length > i; i += 1) {
+        if (x + i >= 10 || y >= 10) {
+          return null;
+        }
+        coords.push({ x: x + i, y: y });
+      }
+      return coords;
+    }
+  }
+
+  return { positions, ship };
 };
 
 const randomShip = (ship) => {
@@ -25,19 +67,4 @@ const randomShip = (ship) => {
   return { randomX, randomY, endCoordinate, randomdirection };
 };
 
-let board = new GameBoard();
-console.log(board);
-const ship = new Ship('battleship');
-const random = randomShip(ship);
-if (random.randomdirection === 'v') {
-  for (let y = random.randomY; y < random.endCoordinate; y++) {
-    board[random.randomX][y] = 1;
-  }
-} else {
-  for (let x = random.randomX; x < random.endCoordinate; x++) {
-    board[x][random.randomY] = 1;
-  }
-}
-
-console.log(board);
 export default GameBoard;
