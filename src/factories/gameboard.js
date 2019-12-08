@@ -20,7 +20,7 @@ const GameBoard = (testing) => {
     createPositions();
   }
 
-  const hit = (x, y) => {
+  const receiveAttack = (x, y) => {
     if (positions[x] == null || positions[x][y] == null) return false;
 
     const hitted = positions[x][y];
@@ -83,7 +83,7 @@ const GameBoard = (testing) => {
     }
   }
 
-  return { positions, ship, positionCoordinates, hit };
+  return { positions, ship, positionCoordinates, receiveAttack };
 };
 
 const randomShip = () => {
