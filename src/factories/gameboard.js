@@ -40,6 +40,12 @@ const GameBoard = (testing) => {
   };
 
   const allSunk = () => {
+    const types = Object.keys(ship);
+    for (let i = 0; types.length > i; i += 1) {
+      if (ship[types[i]].isSunk() == false) {
+        return false;
+      }
+    }
     return true;
   };
 
