@@ -81,7 +81,7 @@ test('gameboard return the missed attacks', () => {
   gameBoard.receiveAttack(2, 5);
   gameBoard.receiveAttack(3, 3);
   gameBoard.receiveAttack(3, 4);
-  returned = [
+  const returned = [
     [2, 3],
     [2, 4],
     [2, 5],
@@ -89,4 +89,22 @@ test('gameboard return the missed attacks', () => {
     [3, 4],
   ];
   expect(gameBoard.missedAttacks()).toEqual(returned);
+});
+
+test('Gameboard.allSunk() return true if all ships have been sunk', () => {
+  const gameBoard = new GameBoard();
+  for (let i = 0; gameBoard.positionCoordinates.length > i; i += 1) {
+    const { x, y } = gameBoard.positionCoordinates[i];
+    gameBoard.receiveAttack(x, y);
+  }
+  expect(gameBoard.allSunk()).toBe(true);
+});
+
+test('Gameboard.allSunk() return false if all ships have not been sunk', () => {
+  const gameBoard = new GameBoard();
+  for (let i = 0; 6 > i; i += 1) {
+    const { x, y } = gameBoard.positionCoordinates[i];
+    gameBoard.receiveAttack(x, y);
+  }
+  expect(gameBoard.allSunk()).toBe(false);
 });

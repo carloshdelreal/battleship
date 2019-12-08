@@ -11,6 +11,10 @@ const GameBoard = (testing) => {
 
   const positions = {};
   const positionCoordinates = [];
+  const attacks = {
+    mis: [],
+    hit: [],
+  };
 
   if (testing) {
     setPosition('battleship', createShipCoords('battleship', 0, 0, 'v'));
@@ -21,10 +25,21 @@ const GameBoard = (testing) => {
   }
 
   const receiveAttack = (x, y) => {
-    if (positions[x] == null || positions[x][y] == null) return false;
-
+    if (positions[x] == null || positions[x][y] == null) {
+      attacks.mis.push([x, y]);
+      return false;
+    }
     const hitted = positions[x][y];
+    attacks.hit.push([x, y]);
     ship[hitted.shipType].hit(hitted.index);
+    return true;
+  };
+
+  const missedAttacks = () => {
+    return attacks.mis;
+  };
+
+  const allSunk = () => {
     return true;
   };
 
@@ -83,7 +98,14 @@ const GameBoard = (testing) => {
     }
   }
 
-  return { positions, ship, positionCoordinates, receiveAttack };
+  return {
+    positions,
+    ship,
+    positionCoordinates,
+    receiveAttack,
+    missedAttacks,
+    allSunk,
+  };
 };
 
 const randomShip = () => {
