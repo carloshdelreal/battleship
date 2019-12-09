@@ -5,11 +5,17 @@
   display: inline-block;
   width: 35px;
   height: 35px;
-  color: red;
+}
+
+.hitted {
+  background-color: red;
 }
 
 .grid {
   width: 360px;
+  div {
+    height: 36px;
+  }
 }
 
 button {

@@ -1,9 +1,9 @@
 import Player from '../factories/player';
 
-it('Generate 40 random shots', () => {
+test('Generate 40 random shots', () => {
   const player = new Player(true);
 
-  for (let i = 0; 40 > i; i += 1) {
+  for (let i = 0; i < 40; i += 1) {
     player.shot();
   }
 
