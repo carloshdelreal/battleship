@@ -13,4 +13,9 @@ window.onload = () => {
       event.target.style.backgroundColor = 'red';
     });
   }
+
+  const resetButton = document.querySelector('.btn-danger');
+  resetButton.addEventListener('click', () => {
+    createGrid();
+  });
 };
