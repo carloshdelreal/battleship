@@ -4,7 +4,7 @@ import { createButtons, createGrid } from './DOM/dom';
 createButtons();
 createGrid();
 
-function listner() {
+window.onload = () => {
   const grid = document.querySelectorAll('.grid2');
   //grid.style.backgroundColor="red";
 
@@ -13,5 +13,4 @@ function listner() {
       event.target.style.backgroundColor = 'red';
     });
   }
-}
-listner();
+};
