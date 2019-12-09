@@ -36,7 +36,7 @@ function createGrid() {
   for (rows = 0; rows < x; rows++) {
     for (var columns = 0; columns < x; columns++) {
       col.insertAdjacentHTML('beforeend', "<div class='grid'></div>");
-      col2.insertAdjacentHTML('beforeend', "<div class='grid'></div>");
+      col2.insertAdjacentHTML('beforeend', "<div class='grid2'></div>");
     }
   }
   row.appendChild(col);

@@ -3,3 +3,15 @@ import { createButtons, createGrid } from './DOM/dom';
 
 createButtons();
 createGrid();
+
+function listner() {
+  const grid = document.querySelectorAll('.grid2');
+  //grid.style.backgroundColor="red";
+
+  for (var i = 0; i < 100; i++) {
+    grid[i].addEventListener('click', function(event) {
+      event.target.style.backgroundColor = 'red';
+    });
+  }
+}
+listner();
