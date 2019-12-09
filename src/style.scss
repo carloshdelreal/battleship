@@ -5,5 +5,15 @@
 	border:none;
 	outline:1px solid #000;
 	display:inline-block;
-	
+	width: 48px;
+	height: 48px;
+}
+
+.column-1{
+	width: 480px;
+}
+
+.column-2{
+	width: 480px;
+	margin-left: 100px;
 }
