@@ -1,33 +1,21 @@
 @import '~bootstrap/scss/bootstrap/';
-.grid{
-    margin:0;
-	padding:0;
-	border:none;
-	outline:1px solid #000;
-	display:inline-block;
-	width: 48px;
-	height: 48px;
+.grid-item {
+  border: none;
+  outline: 1px solid #000;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  color: red;
 }
 
-.grid2{
-    margin:0;
-	padding:0;
-	border:none;
-	outline:1px solid #000;
-	display:inline-block;
-	width: 48px;
-	height: 48px;
-	background: gray;
+.grid {
+  width: 360px;
 }
 
-.column-1{
-	width: 480px;
+button {
+  margin: 3px;
 }
 
-.column-2{
-	width: 480px;
-	margin-left: 100px;
-}
-button{
-	margin:3px;
+.title {
+  margin-top: 20px;
 }

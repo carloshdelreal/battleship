@@ -1,7 +1,7 @@
-import { createDiv, createElem, tabElem, tabContent } from './elmcreator';
+import { createDiv, createElem } from './elmcreator';
+import { create } from 'domain';
 
 function createButtons() {
-  const container = document.querySelector('.container');
   const row = createDiv(['row']);
   const col = createDiv(['col-md-3']);
   const startBtn = createElem('button', '', ['btn', 'btn-primary']);
@@ -12,36 +12,57 @@ function createButtons() {
   col.appendChild(startBtn);
   col.appendChild(resetGame);
   row.appendChild(col);
-  container.appendChild(row);
+
+  return { row, startBtn, resetGame };
 }
 
-function createGrid() {
-  const container = document.querySelector('.container');
-  const row = createDiv(['row']);
-  const col = createDiv(['column-1']);
-  const col2 = createDiv(['column-2']);
-  const title = createDiv(['title']);
-  const head = createElem('h3', '', []);
-  head.innerText = 'Player';
-  title.appendChild(head);
-  col.appendChild(title);
-  const title2 = createDiv(['title2']);
-  const head2 = createElem('h3', '', []);
-  head2.innerText = 'Computer';
-  title2.appendChild(head2);
-  col2.appendChild(title2);
+function createGrid(gridClassName) {
   let rows = 0;
-  let x = 10;
+  const x = 10;
+  const classArr = ['grid', gridClassName];
+  const col = createDiv(classArr);
 
-  for (rows = 0; rows < x; rows++) {
-    for (var columns = 0; columns < x; columns++) {
-      col.insertAdjacentHTML('beforeend', "<div class='grid'></div>");
-      col2.insertAdjacentHTML('beforeend', "<div class='grid2'></div>");
+  for (rows = 0; rows < x; rows += 1) {
+    const row = createDiv([]);
+    col.appendChild(row);
+    for (let columns = 0; columns < x; columns += 1) {
+      row.insertAdjacentHTML(
+        'beforeend',
+        `<div class='grid-item' x=${columns} y=${rows}></div>`,
+      );
     }
   }
-  row.appendChild(col);
-  row.appendChild(col2);
-  container.appendChild(row);
+  return col;
 }
 
-export { createButtons, createGrid };
+function createGridTitle(titleText) {
+  const title = createDiv(['title']);
+  const head = createElem('h3', '', []);
+  head.innerText = titleText;
+  title.appendChild(head);
+  return { title, head };
+}
+
+function createDOMBoard() {
+  const row = createDiv(['row', 'justify-content-md-center']);
+
+  const leftCol = createDiv(['col-']);
+  const { title: gPTitle, head: pTitle } = createGridTitle('Player 1');
+  const gPlayer = createGrid('player-grid');
+  leftCol.appendChild(gPTitle);
+  leftCol.appendChild(gPlayer);
+
+  const rightCol = createDiv(['col-']);
+  const { title: gETitle, head: eTitle } = createGridTitle('Enemy (Computer)');
+  const gEnemy = createGrid('enemy-grid');
+  rightCol.appendChild(gETitle);
+  rightCol.appendChild(gEnemy);
+
+  row.appendChild(leftCol);
+  row.appendChild(createDiv(['col-1']));
+  row.appendChild(rightCol);
+
+  return row;
+}
+
+export { createButtons, createDOMBoard, createGrid };

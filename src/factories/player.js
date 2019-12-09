@@ -18,7 +18,7 @@ const Player = (computer) => {
     return { x: arr[0], y: arr[1] };
   };
 
-  return { shot, shots };
+  return { shot, shots, gameBoard };
 };
 
 export default Player;

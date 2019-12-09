@@ -1,21 +1,22 @@
 import './style.scss';
-import { createButtons, createGrid } from './DOM/dom';
-
-createButtons();
-createGrid();
+import { createButtons, createDOMBoard, createGrid } from './DOM/dom';
 
 window.onload = () => {
-  const grid = document.querySelectorAll('.grid2');
-  //grid.style.backgroundColor="red";
+  const container = document.querySelector('.container');
+  const boardDOM = createDOMBoard();
 
-  for (var i = 0; i < 100; i++) {
-    grid[i].addEventListener('click', function(event) {
+  const { row, startBtn, resetGame } = createButtons();
+  container.appendChild(boardDOM);
+  container.appendChild(row);
+
+  const grid = document.querySelectorAll('.enemy-grid .grid-item');
+  for (let i = 0; i < 100; i += 1) {
+    grid[i].addEventListener('click', (event) => {
       event.target.style.backgroundColor = 'red';
     });
   }
 
-  const resetButton = document.querySelector('.btn-danger');
-  resetButton.addEventListener('click', () => {
-    createGrid();
-  });
+  // resetGame.addEventListener('click', () => {
+  //   console.log('reset');
+  // });
 };
