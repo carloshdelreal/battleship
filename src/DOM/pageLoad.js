@@ -18,7 +18,7 @@ export default function load() {
   const container = document.querySelector('.container');
   const { row: boardDOM, gPlayer, gEnemy } = createDOMBoard();
 
-  const { row: buttonsDOM, startBtn, resetGame: resetBtn } = createButtons();
+  const { row: buttonsDOM, startBtn } = createButtons();
   container.appendChild(boardDOM);
   container.appendChild(buttonsDOM);
 
@@ -29,5 +29,5 @@ export default function load() {
   player.grid = gPlayer;
   computer.grid = gEnemy;
   const players = [player, computer];
-  return { startBtn, resetBtn, players };
+  return { startBtn, players };
 }

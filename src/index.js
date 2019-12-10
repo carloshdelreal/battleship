@@ -49,10 +49,6 @@ window.onload = () => {
     } while (winner === false);
   }
 
-  resetBtn.addEventListener('click', () => {
-    resetBoard(players[1].grid);
-  });
-
   startBtn.addEventListener('click', () => {
     startGame();
   });

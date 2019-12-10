@@ -4,15 +4,12 @@ function createButtons() {
   const row = createDiv(['row']);
   const col = createDiv(['col-md-3']);
   const startBtn = createElem('button', '', ['btn', 'btn-primary']);
-  const resetGame = createElem('button', '', ['btn', 'btn-danger']);
   startBtn.innerText = 'New Game';
-  resetGame.innerText = 'Reset Board';
 
   col.appendChild(startBtn);
-  col.appendChild(resetGame);
   row.appendChild(col);
 
-  return { row, startBtn, resetGame };
+  return { row, startBtn };
 }
 
 function createGrid(gridClassName) {
