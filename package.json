@@ -7,7 +7,8 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "lint": "eslint ./src --fix"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,9 @@
     "css-loader": "^3.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jquery": "^3.4.1",
+    "npm-install-peers": "^1.2.1",
     "popper": "^1.0.1",
+    "popper.js": "^1.16.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1"

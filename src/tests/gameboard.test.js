@@ -102,7 +102,7 @@ test('Gameboard.allSunk() return true if all ships have been sunk', () => {
 
 test('Gameboard.allSunk() return false if all ships have not been sunk', () => {
   const gameBoard = new GameBoard();
-  for (let i = 0; 6 > i; i += 1) {
+  for (let i = 0; i < 6; i += 1) {
     const { x, y } = gameBoard.positionCoordinates[i];
     gameBoard.receiveAttack(x, y);
   }
