@@ -9,11 +9,26 @@ const GameBoard = (testing) => {
     patrolBoat: Ship('patrolBoat'),
   };
 
-  const positions = {};
-  const positionCoordinates = [];
-  const attacks = {
+  let positions = {};
+  let positionCoordinates = [];
+  let attacks = {
     mis: [],
     hit: [],
+  };
+
+  const reset = () => {
+    positions = {};
+    positionCoordinates = [];
+    attacks = {
+      mis: [],
+      hit: [],
+    };
+    createPositions();
+
+    const types = Object.keys(ship);
+    for (let i = 0; types.length > i; i += 1) {
+      ship[types[i]].reset();
+    }
   };
 
   if (testing) {
@@ -80,22 +95,25 @@ const GameBoard = (testing) => {
 
   function createShipCoords(shipType, x, y, direction) {
     const { length } = ship[shipType];
-    let coords = [];
-    if (direction == 'v') {
+    const coords = [];
+    if (direction === 'v') {
       for (let i = 0; length > i; i += 1) {
         if (x >= 10 || y + i >= 10) {
           return null;
-        } else if (positions[x] != null && positions[x][y + i] != null) {
+        }
+        if (positions[x] != null && positions[x][y + i] != null) {
           return null;
         }
         coords.push({ x: x, y: y + i });
       }
       return coords;
-    } else if (direction == 'h') {
+    }
+    if (direction == 'h') {
       for (let i = 0; length > i; i += 1) {
         if (x + i >= 10 || y >= 10) {
           return null;
-        } else if (positions[x + i] != null && positions[x + i][y] != null) {
+        }
+        if (positions[x + i] != null && positions[x + i][y] != null) {
           return null;
         }
         coords.push({ x: x + i, y: y });
@@ -111,6 +129,7 @@ const GameBoard = (testing) => {
     receiveAttack,
     missedAttacks,
     allSunk,
+    reset,
   };
 };
 

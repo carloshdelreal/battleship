@@ -30,3 +30,16 @@ test('Create a new carrier and sink it! ', () => {
   ship.hit(4);
   expect(ship.isSunk()).toBe(true);
 });
+
+test('Sunk a ship and then repair it!', () => {
+  const ship = Ship('carrier');
+  ship.hit(0);
+  ship.hit(1);
+  ship.hit(2);
+  ship.hit(3);
+  ship.hit(4);
+  expect(ship.isSunk()).toBe(true);
+  ship.reset();
+  expect(ship.isSunk()).toBe(false);
+  expect(ship.damage).toEqual([false, false, false, false, false]);
+});

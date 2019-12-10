@@ -1,5 +1,4 @@
 import { createDiv, createElem } from './elmcreator';
-import { create } from 'domain';
 
 function createButtons() {
   const row = createDiv(['row']);
@@ -62,7 +61,7 @@ function createDOMBoard() {
   row.appendChild(createDiv(['col-1']));
   row.appendChild(rightCol);
 
-  return row;
+  return { row, gPlayer, gEnemy };
 }
 
 export { createButtons, createDOMBoard, createGrid };

@@ -18,13 +18,18 @@ const Ship = (shipType) => {
   };
   const type = shipType;
   const { length } = shipClasses[shipType];
-  let damage = Array(length).fill(false);
-  const isSunk = () => {
-    return damage.every((x) => x == true);
-  };
+  const damage = Array(length).fill(false);
+
+  const isSunk = () => damage.every((x) => x === true);
 
   const hit = (number) => {
     damage[number] = true;
+  };
+
+  const reset = () => {
+    for (let i = 0; i < length; i += 1) {
+      damage[i] = false;
+    }
   };
 
   return {
@@ -33,6 +38,7 @@ const Ship = (shipType) => {
     hit,
     isSunk,
     type,
+    reset,
   };
 };
 

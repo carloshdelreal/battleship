@@ -108,3 +108,14 @@ test('Gameboard.allSunk() return false if all ships have not been sunk', () => {
   }
   expect(gameBoard.allSunk()).toBe(false);
 });
+
+test('Hit all the boats and all of them are sunk, then repair them', () => {
+  const gameBoard = GameBoard();
+  for (let i = 0; gameBoard.positionCoordinates.length > i; i += 1) {
+    const { x, y } = gameBoard.positionCoordinates[i];
+    gameBoard.receiveAttack(x, y);
+  }
+  expect(gameBoard.allSunk()).toBe(true);
+  gameBoard.reset();
+  expect(gameBoard.allSunk()).toBe(false);
+});
