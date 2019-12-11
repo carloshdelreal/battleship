@@ -20,7 +20,7 @@ const Ship = (shipType) => {
   const { length } = shipClasses[shipType];
   const damage = Array(length).fill(false);
 
-  const isSunk = () => damage.every((x) => x === true);
+  const isSunk = () => damage.every(x => x === true);
 
   const hit = (number) => {
     damage[number] = true;

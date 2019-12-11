@@ -1,5 +1,5 @@
 import Player from '../factories/player';
-import { createButtons, createDOMBoard, createLegend } from './dom';
+import { createButtons, createDOMBoard } from './dom';
 
 export default function load() {
   const container = document.querySelector('.container');

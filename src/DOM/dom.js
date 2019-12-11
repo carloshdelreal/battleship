@@ -1,6 +1,4 @@
 import { createDiv, createElem } from './elmcreator';
-import { isV8IntrinsicIdentifier } from '@babel/types';
-import { create } from 'domain';
 
 function createButtons() {
   const row = createDiv(['row']);
@@ -69,7 +67,7 @@ function createDOMBoard() {
   row.appendChild(createDiv(['col-1']));
   row.appendChild(rightCol);
 
-  return { row, gPlayer, gEnemy };
+  return { row, gPlayer, gEnemy, pTitle, eTitle };
 }
 
 export { createButtons, createDOMBoard, createGrid };
