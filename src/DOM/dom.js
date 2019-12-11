@@ -2,11 +2,11 @@ import { createDiv, createElem } from './elmcreator';
 
 function boats() {
   const rightCol = createDiv(['col-2']);
-  const battleship = createDiv(['battleship']);
-  const carrier = createDiv(['carrier']);
-  const submarine = createDiv(['submarine']);
-  const destroyer = createDiv(['destroyer']);
-  const patrol = createDiv(['patrol']);
+  const battleship = createDiv(['ship', 'battleship']);
+  const carrier = createDiv(['ship', 'carrier']);
+  const submarine = createDiv(['ship', 'submarine']);
+  const destroyer = createDiv(['ship', 'destroyer']);
+  const patrol = createDiv(['ship', 'patrol']);
   rightCol.appendChild(battleship);
   rightCol.appendChild(carrier);
   rightCol.appendChild(submarine);
