@@ -2,6 +2,21 @@ import './style.scss';
 import { fireBoard, resetBoard, arrInclude } from './auxFunctions';
 import pageLoad from './DOM/pageLoad';
 
+function won() {
+  const grid = document.querySelectorAll('.enemy-grid .grid-item');
+  for (let i = 0; i < 100; i += 1) {
+    grid[i].removeEventListener('click', () => {});
+  }
+  const popup = document.getElementById('winner');
+  popup.style.display = 'block';
+
+  window.onclick = function(event) {
+    if (event.target === popup) {
+      popup.style.display = 'none';
+    }
+  };
+}
+
 window.onload = () => {
   const { players, startBtn } = pageLoad();
 
@@ -18,8 +33,8 @@ window.onload = () => {
     hit = players[1].gameBoard.receiveAttack(x, y);
     fireBoard(x, y, players[1].grid, hit);
     // console.log(`${players[0].name} fires: ${x}, ${y} and hit: ${hit}`);
-    if (players[1].gameBoard.allSunk() == true) {
-      won('Player');
+    if (players[1].gameBoard.allSunk() === true) {
+      won();
     }
     // Computer Attack
     const shot = players[1].shot();
@@ -30,7 +45,7 @@ window.onload = () => {
     //   `${players[1].name} fires: ${shot.x}, ${shot.y} and hit: ${hit}`,
     // );
     if (players[0].gameBoard.allSunk() === true) {
-      won('Computer');
+      won();
     }
   }
 
@@ -50,18 +65,3 @@ window.onload = () => {
     });
   }
 };
-
-function won(winer) {
-  const grid = document.querySelectorAll('.enemy-grid .grid-item');
-  for (let i = 0; i < 100; i += 1) {
-    grid[i].removeEventListener('click', () => {});
-  }
-  const popup = document.getElementById('winner');
-  popup.style.display = 'block';
-
-  window.onclick = function(event) {
-    if (event.target == popup) {
-      popup.style.display = 'none';
-    }
-  };
-}
