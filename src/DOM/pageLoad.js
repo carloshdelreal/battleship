@@ -1,5 +1,5 @@
 import Player from '../factories/player';
-import { createButtons, createDOMBoard } from './dom';
+import { createButtons, createDOMBoard, winner } from './dom';
 
 export default function load() {
   const container = document.querySelector('.container');
@@ -8,6 +8,7 @@ export default function load() {
   const { row: buttonsDOM, startBtn } = createButtons();
   container.appendChild(boardDOM);
   container.appendChild(buttonsDOM);
+  container.appendChild(winner());
 
   const player = Player('Carlos', false);
   const computer = Player('Computer', true);
