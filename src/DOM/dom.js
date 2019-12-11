@@ -2,7 +2,7 @@ import { createDiv, createElem } from './elmcreator';
 
 function boats() {
   const rightCol = createDiv(['col-2']);
-  const battleship = createDiv(['battleship', 'line-1']);
+  const battleship = createDiv(['battleship']);
   const carrier = createDiv(['carrier']);
   const submarine = createDiv(['submarine']);
   const destroyer = createDiv(['destroyer']);
