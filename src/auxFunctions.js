@@ -26,4 +26,21 @@ const randomShip = () => {
   return { X, Y, directionStr };
 };
 
-export { arrEqual, arrInclude, randomShip };
+function fireBoard(x, y, grid, hit) {
+  if (hit) {
+    grid.children[y].children[x].classList.add('hitted');
+  } else {
+    grid.children[y].children[x].classList.add('missed');
+  }
+}
+
+function resetBoard(grid) {
+  for (let i = 0; i < 10; i += 1) {
+    for (let j = 0; j < 10; j += 1) {
+      grid.children[i].children[j].classList.remove('hitted');
+      grid.children[i].children[j].classList.remove('missed');
+    }
+  }
+}
+
+export { arrEqual, arrInclude, randomShip, fireBoard, resetBoard };

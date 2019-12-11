@@ -20,3 +20,13 @@ test('reset player', () => {
   player.reset();
   expect(player.shots).toEqual([]);
 });
+
+test('player keeps track of the shots', () => {
+  const player = Player('tester');
+  player.shot(0, 0);
+  player.shot(3, 0);
+  expect(player.shots).toEqual([
+    [0, 0],
+    [3, 0],
+  ]);
+});

@@ -1,55 +1,47 @@
 import './style.scss';
+import { fireBoard, resetBoard, arrInclude } from './auxFunctions';
 import pageLoad from './DOM/pageLoad';
 
-function fireBoard(x, y, grid) {
-  grid.children[x].children[y].classList.add('hitted');
-}
-
-function resetBoard(grid) {
-  for (let i = 0; i < 10; i += 1) {
-    for (let j = 0; j < 10; j += 1) {
-      grid.children[i].children[j].classList.remove('hitted');
-    }
-  }
-}
-
-let turn = 0;
-function swichTurn() {
-  if (turn === 0) {
-    turn = 1;
-  } else {
-    turn = 0;
-  }
-}
-
 window.onload = () => {
-  const { players, startBtn, resetBtn } = pageLoad();
+  const { players, startBtn } = pageLoad();
 
   function startGame() {
     resetBoard(players[1].grid);
     resetBoard(players[0].grid);
     players[0].reset();
     players[1].reset();
+  }
 
-    let winner = false;
+  function battleTurn(x, y) {
+    let hit = null;
+    players[0].shot(x, y);
+    hit = players[1].gameBoard.receiveAttack(x, y);
+    fireBoard(x, y, players[1].grid, hit);
+    // console.log(`${players[0].name} fires: ${x}, ${y} and hit: ${hit}`);
 
-    do {
-      const fire = players[turn].shot();
-      console.log(`${players[turn].name} fires: ${fire.x}, ${fire.y}`);
+    // Computer Attack
+    const shot = players[1].shot();
 
-      swichTurn();
-
-      fireBoard(fire.x, fire.y, players[turn].grid);
-      players[turn].gameBoard.receiveAttack(fire.x, fire.y);
-
-      if (players[turn].gameBoard.allSunk()) {
-        console.log('Player won');
-        winner = true;
-      }
-    } while (winner === false);
+    hit = players[0].gameBoard.receiveAttack(shot.x, shot.y);
+    fireBoard(shot.x, shot.y, players[0].grid, hit);
+    // console.log(
+    //   `${players[1].name} fires: ${shot.x}, ${shot.y} and hit: ${hit}`,
+    // );
   }
 
   startBtn.addEventListener('click', () => {
     startGame();
   });
+
+  const grid = document.querySelectorAll('.enemy-grid .grid-item');
+  for (let i = 0; i < 100; i += 1) {
+    grid[i].addEventListener('click', (event) => {
+      const x = event.target.getAttribute('x');
+      const y = event.target.getAttribute('y');
+
+      if (arrInclude(players[0].shots, [x, y]) === false) {
+        battleTurn(x, y);
+      }
+    });
+  }
 };

@@ -3,24 +3,32 @@ import { arrInclude } from '../auxFunctions';
 
 const Player = (playerName, computer) => {
   const name = playerName;
-  let shots = [];
+  const shots = [];
 
   const gameBoard = GameBoard();
-  const shot = () => {
+  const shot = (xCoord, yCoord) => {
+    let x = xCoord;
+    let y = yCoord;
     let arr = null;
     if (computer) {
       do {
-        const X = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
-        const Y = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
-        arr = [X, Y];
+        x = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
+        y = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
+        arr = [x, y];
       } while (arrInclude(shots, arr) === true);
+    } else {
+      if (xCoord == null) return null;
+      arr = [x, y];
+      if (arrInclude(shots, arr)) {
+        return null;
+      }
     }
-    shots.push(arr);
+    shots.push([x, y]);
     return { x: arr[0], y: arr[1] };
   };
 
   const reset = () => {
-    shots = [];
+    shots.length = 0;
     gameBoard.reset();
   };
 
