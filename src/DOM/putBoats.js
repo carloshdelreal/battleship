@@ -13,10 +13,9 @@ function placeShipHorizontally(x, y, l, shipType) {
 
 function placeShipVertically(x, y, l, shipType) {
   const a = document.querySelector('.grid');
-
   let count = 1;
   for (let i = x; i < x + l; i += 1) {
-    let items = a.children[i];
+    const items = a.children[i];
     const item = items.children[y];
     item.classList.add('ship-sea-v');
     item.classList.add(`${shipType}-sea-v`);
@@ -24,3 +23,4 @@ function placeShipVertically(x, y, l, shipType) {
     count += 1;
   }
 }
+export default { placeShipHorizontally, placeShipVertically };
