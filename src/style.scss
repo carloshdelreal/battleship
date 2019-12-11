@@ -72,4 +72,31 @@ button {
   height: 70px;
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top:50px;
+}
+
+.carrier{
+  background-image: url('./img/carrier.png');
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.submarine{
+  background-image: url('./img/submarine.png');
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.destroyer{
+  background-image: url('./img/cruiser.png');
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.patrol{
+  background-image: url('./img/patrol-boat.png');
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

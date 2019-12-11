@@ -84,7 +84,15 @@ function winner() {
 function boats() {
   const rightCol = createDiv(['col-2']);
   const battleship = createDiv(['battleship']);
+  const carrier = createDiv(['carrier']);
+  const submarine = createDiv(['submarine']);
+  const destroyer = createDiv(['destroyer']);
+  const patrol = createDiv(['patrol']);
   rightCol.appendChild(battleship);
+  rightCol.appendChild(carrier);
+  rightCol.appendChild(submarine);
+  rightCol.appendChild(destroyer);
+  rightCol.appendChild(patrol);
   return rightCol;
 }
 
