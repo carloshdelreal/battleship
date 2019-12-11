@@ -66,6 +66,7 @@ function createDOMBoard() {
   row.appendChild(leftCol);
   row.appendChild(createDiv(['col-1']));
   row.appendChild(rightCol);
+  row.appendChild(boats());
 
   return { row, gPlayer, gEnemy, pTitle, eTitle };
 }
@@ -78,6 +79,13 @@ function winner() {
   content.appendChild(h4);
   div.appendChild(content);
   return div;
+}
+
+function boats() {
+  const rightCol = createDiv(['col-2']);
+  const battleship = createDiv(['battleship']);
+  rightCol.appendChild(battleship);
+  return rightCol;
 }
 
 export { createButtons, createDOMBoard, createGrid, winner };

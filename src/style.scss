@@ -66,3 +66,10 @@ button {
   border: 1px solid #888;
   width: 80%; 
 }
+
+.battleship{
+  background-image: url('./img/battleship.png');
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
