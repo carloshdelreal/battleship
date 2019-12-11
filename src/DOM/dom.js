@@ -1,5 +1,20 @@
 import { createDiv, createElem } from './elmcreator';
 
+function boats() {
+  const rightCol = createDiv(['col-2']);
+  const battleship = createDiv(['battleship']);
+  const carrier = createDiv(['carrier']);
+  const submarine = createDiv(['submarine']);
+  const destroyer = createDiv(['destroyer']);
+  const patrol = createDiv(['patrol']);
+  rightCol.appendChild(battleship);
+  rightCol.appendChild(carrier);
+  rightCol.appendChild(submarine);
+  rightCol.appendChild(destroyer);
+  rightCol.appendChild(patrol);
+  return rightCol;
+}
+
 function createButtons() {
   const row = createDiv(['row']);
   const col = createDiv(['col-md-3']);
@@ -79,21 +94,6 @@ function winner() {
   content.appendChild(h4);
   div.appendChild(content);
   return div;
-}
-
-function boats() {
-  const rightCol = createDiv(['col-2']);
-  const battleship = createDiv(['battleship']);
-  const carrier = createDiv(['carrier']);
-  const submarine = createDiv(['submarine']);
-  const destroyer = createDiv(['destroyer']);
-  const patrol = createDiv(['patrol']);
-  rightCol.appendChild(battleship);
-  rightCol.appendChild(carrier);
-  rightCol.appendChild(submarine);
-  rightCol.appendChild(destroyer);
-  rightCol.appendChild(patrol);
-  return rightCol;
 }
 
 export { createButtons, createDOMBoard, createGrid, winner };
