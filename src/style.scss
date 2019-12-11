@@ -230,3 +230,87 @@ $ship-loc-x: -6px;
 .battleship-sea-v-4 {
   background-position-x: $ship-size * 1;
 }
+
+
+
+// Carrier
+.carrier-sea-v {
+  background-image: url('./img/carrier.png');
+  transform: rotate(90deg);
+  background-size: 165px;
+  background-position-y: -8px;
+}
+
+.carrier-sea-v-1 {
+  background-position-x: $ship-loc-x;
+}
+.carrier-sea-v-2 {
+  background-position-x: $ship-size * 4 + $ship-loc-x;
+}
+
+.carrier-sea-v-3 {
+  background-position-x: $ship-size * 3 + $ship-loc-x;
+}
+
+.carrier-sea-v-4 {
+  background-position-x: $ship-size * 2 + $ship-loc-x;
+}
+.carrier-sea-v-5 {
+  background-position-x: $ship-size * 1 ;
+}
+
+//Submarine V
+
+$ship-loc-x: -17px;
+.submarine-sea-v {
+  background-image: url('./img/submarine.png');
+  background-size: 125px;
+  background-position-y: -4px;
+  transform: rotate(90deg)
+}
+
+.submarine-sea-v-1 {
+  background-position-x: $ship-loc-x;
+}
+.submarine-sea-v-2 {
+  background-position-x: $ship-size * 2 + $ship-loc-x;
+}
+
+.submarine-sea-v-3 {
+  background-position-x: $ship-size * 1 + $ship-loc-x;
+}
+
+// Cruisier
+$ship-loc-x: 0px;
+.cruiser-sea-v {
+  background-image: url('./img/cruiser.png');
+  background-size: 100px;
+  background-position-y: 8px;
+  transform: rotate(90deg);
+}
+
+.cruiser-sea-v-1 {
+  background-position-x: $ship-loc-x;
+}
+.cruiser-sea-v-2 {
+  background-position-x: -$ship-size * 1 + $ship-loc-x;
+}
+
+.cruiser-sea-v-3 {
+  background-position-x: -$ship-size * 2 + $ship-loc-x;
+}
+
+// Patrol Boat
+.patrol-sea-v {
+  background-image: url('./img/patrol-boat.png');
+  background-size: 65px;
+  background-position-y: 3px;
+  transform: rotate(90deg);
+}
+
+.patrol-sea-v-1 {
+  background-position-x: $ship-loc-x;
+}
+.patrol-sea-v-2 {
+  background-position-x: -$ship-size * 1 + $ship-loc-x;
+}
