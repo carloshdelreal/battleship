@@ -70,4 +70,14 @@ function createDOMBoard() {
   return { row, gPlayer, gEnemy, pTitle, eTitle };
 }
 
-export { createButtons, createDOMBoard, createGrid };
+function winner() {
+  const div = createElem('div', 'winner', ['popup']);
+  const content = createDiv(['content']);
+  const h4 = createElem('h4', '', ['title']);
+  h4.innerText = 'Congratulations You have one';
+  content.appendChild(h4);
+  div.appendChild(content);
+  return div;
+}
+
+export { createButtons, createDOMBoard, createGrid, winner };
