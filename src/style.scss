@@ -73,6 +73,7 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
   margin-top:50px;
+  position:fixed;
 }
 
 .carrier{
@@ -99,4 +100,25 @@ button {
   height: 70px;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.line-1 {
+  position: relative;
+  display: block;
+  height: 70px;
+  width: 5px;
+  background: red;
+  top: -12%;
+  left: 50%;
+  -webkit-transform: rotate(45deg); 
+}
+.line-2 {
+  position: absolute;
+  display: block;
+  height: 70px;
+  width: 5px;
+  background: red;
+  top: -12%;
+  left: 50%;
+  -webkit-transform: rotate(-45deg); 
 }
