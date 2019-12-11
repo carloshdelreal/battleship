@@ -28,3 +28,20 @@ button {
 .title {
   margin-top: 20px;
 }
+
+.wrapper{
+  margin-left:60%;
+  p:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
+  .blue:before {
+    background: Blue;
+  }
+  .red:before {
+    background: red;
+  }
+}

@@ -1,4 +1,6 @@
 import { createDiv, createElem } from './elmcreator';
+import { isV8IntrinsicIdentifier } from '@babel/types';
+import { create } from 'domain';
 
 function createButtons() {
   const row = createDiv(['row']);
@@ -9,6 +11,15 @@ function createButtons() {
   col.appendChild(startBtn);
   row.appendChild(col);
 
+  const div = createDiv(['wrapper']);
+  const createp1 = createElem('p', '', ['red']);
+  createp1.innerText = 'Hitted';
+  div.appendChild(createp1);
+
+  const createp2 = createElem('p', '', ['blue']);
+  createp2.innerText = 'Missed';
+  div.appendChild(createp2);
+  row.appendChild(div);
   return { row, startBtn };
 }
 
