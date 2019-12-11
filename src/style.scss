@@ -203,3 +203,30 @@ $ship-loc-x: 5px;
 .patrol-sea-3 {
   background-position-x: -$ship-size * 2 + $ship-loc-x;
 }
+
+// POSITION VERTICAL
+
+// Battleship
+.battleship-sea-v {
+  background-image: url('./img/battleship.png');
+  transform: rotate(90deg);
+  background-size: 140px;
+  background-position-y: 4px;
+}
+$ship-size: 32px;
+$ship-loc-x: -6px;
+
+.battleship-sea-v-1 {
+  background-position-x: $ship-loc-x;
+}
+.battleship-sea-v-2 {
+  background-position-x: $ship-size * 3 + $ship-loc-x;
+}
+
+.battleship-sea-v-3 {
+  background-position-x: $ship-size * 2 + $ship-loc-x;
+}
+
+.battleship-sea-v-4 {
+  background-position-x: $ship-size * 1;
+}

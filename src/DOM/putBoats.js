@@ -10,3 +10,21 @@ function placeShipHorizontally(x, y, l, shipType) {
     count += 1;
   }
 }
+
+const a = document.querySelector('.grid');
+let item = a.children[2].children[5];
+item.classList.add('ship-sea-v');
+item.classList.add(`battleship-sea-v`);
+item.classList.add(`battleship-sea-v-1`);
+item = a.children[3].children[5];
+item.classList.add('ship-sea-v');
+item.classList.add(`battleship-sea-v`);
+item.classList.add(`battleship-sea-v-2`);
+item = a.children[4].children[5];
+item.classList.add('ship-sea-v');
+item.classList.add(`battleship-sea-v`);
+item.classList.add(`battleship-sea-v-3`);
+item = a.children[5].children[5];
+item.classList.add('ship-sea-v');
+item.classList.add(`battleship-sea-v`);
+item.classList.add(`battleship-sea-v-4`);
