@@ -1,4 +1,17 @@
 @import '~bootstrap/scss/bootstrap/';
+
+body{
+  background: url('./img/background.jpg');
+  background-size:cover;
+}
+
+h1{
+  font-family: 'Press Start 2P', cursive;
+  color:red;
+  font-weight: 900;
+  text-align: center;
+}
+
 .grid-item {
   border: none;
   outline: 1px solid #000;
@@ -7,11 +20,18 @@
   height: 35px;
 }
 
+.row{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+
 .hitted {
   background-color: red;
 }
 .missed {
-  background-color: blue;
+  background:url('./img/wave.png');
+  background-size: contain;
+  background-color:blue;
 }
 
 .grid {
@@ -39,7 +59,9 @@ button {
     margin-right: 5px;
   }
   .blue:before {
-    background: Blue;
+    background-color: Blue;
+    background-image:url(./img/wave.png);
+    background-size: contain;
   }
   .red:before {
     background: red;
