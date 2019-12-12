@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "extends": ["airbnb"],
   "plugins": ["prettier"],
@@ -16,6 +17,7 @@
   "rules": {
     "space-before-function-paren": "off",
     "object-curly-newline": "off",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "arrow-parens": "off"
   }
 }
