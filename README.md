@@ -30,7 +30,7 @@ This project was created by:
 
 You can find the development's live version of this project [here](https://raw.githack.com/carloshdelreal/battleship/develop/dist/index.html)
 
-You can find the stable version of this project [here]()
+You can find the stable version of this project [here](https://carloshdelreal.github.io/battleship/dist/index.html)
 
 # License
 
