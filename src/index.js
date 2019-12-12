@@ -3,23 +3,24 @@ import { fireBoard, resetBoard, arrInclude } from './auxFunctions';
 import pageLoad from './DOM/pageLoad';
 import placeShips from './DOM/putBoats';
 
-function won() {
-  const grid = document.querySelectorAll('.enemy-grid .grid-item');
-  for (let i = 0; i < 100; i += 1) {
-    grid[i].removeEventListener('click', () => {});
-  }
-  const popup = document.getElementById('winner');
-  popup.style.display = 'block';
-
-  window.onclick = (event) => {
-    if (event.target === popup) {
-      popup.style.display = 'none';
-    }
-  };
-}
-
 window.onload = () => {
-  const { players, startBtn } = pageLoad();
+  const { players, startBtn, winnerDOM, winnerText } = pageLoad();
+
+  function won(winner) {
+    const grid = document.querySelectorAll('.grid-item');
+    for (let i = 0; i < 100; i += 1) {
+      grid[i].removeEventListener('click', () => {});
+    }
+    winnerDOM.style.display = 'block';
+
+    winnerText.innerText = `Congratulations ${winner} is the winner`;
+
+    window.onclick = (event) => {
+      if (event.target === winnerDOM) {
+        winnerDOM.style.display = 'none';
+      }
+    };
+  }
 
   function startGame() {
     resetBoard(players[1].grid);
@@ -37,7 +38,7 @@ window.onload = () => {
     fireBoard(x, y, players[1].grid, hit);
     // console.log(`${players[0].name} fires: ${x}, ${y} and hit: ${hit}`);
     if (players[1].gameBoard.allSunk() === true) {
-      won();
+      won(players[0].name);
     }
     // Computer Attack
     const shot = players[1].shot();
@@ -48,7 +49,7 @@ window.onload = () => {
     //   `${players[1].name} fires: ${shot.x}, ${shot.y} and hit: ${hit}`,
     // );
     if (players[0].gameBoard.allSunk() === true) {
-      won();
+      won(players[1].name);
     }
   }
 

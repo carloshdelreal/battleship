@@ -93,7 +93,7 @@ function winner() {
   h4.innerText = 'Congratulations You Win!!';
   content.appendChild(h4);
   div.appendChild(content);
-  return div;
+  return { winnerDOM: div, winnerText: h4 };
 }
 
 export { createButtons, createDOMBoard, createGrid, winner };
