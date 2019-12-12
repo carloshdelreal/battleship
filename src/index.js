@@ -1,6 +1,7 @@
 import './style.scss';
 import { fireBoard, resetBoard, arrInclude } from './auxFunctions';
 import pageLoad from './DOM/pageLoad';
+import placeShips from './DOM/putBoats';
 
 function won() {
   const grid = document.querySelectorAll('.enemy-grid .grid-item');
@@ -10,7 +11,7 @@ function won() {
   const popup = document.getElementById('winner');
   popup.style.display = 'block';
 
-  window.onclick = function(event) {
+  window.onclick = (event) => {
     if (event.target === popup) {
       popup.style.display = 'none';
     }
@@ -25,6 +26,8 @@ window.onload = () => {
     resetBoard(players[0].grid);
     players[0].reset();
     players[1].reset();
+    placeShips(players[0].gameBoard.seeds);
+    // console.log(createSeeds(players[0].gameBoard));
   }
 
   function battleTurn(x, y) {

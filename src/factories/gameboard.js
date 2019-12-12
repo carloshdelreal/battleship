@@ -11,7 +11,8 @@ const GameBoard = (testing) => {
   };
 
   let positions = {};
-  let positionCoordinates = [];
+  const positionCoordinates = [];
+  const seeds = [];
   let attacks = {
     mis: [],
     hit: [],
@@ -84,18 +85,20 @@ const GameBoard = (testing) => {
 
   function createPositions() {
     const types = Object.keys(ship);
-    let returned = null;
     for (let i = 0; types.length > i; i += 1) {
+      let returned = null;
+      let coordinates = null;
+      let seed = null;
       do {
         const { X, Y, directionStr } = randomShip();
         // console.log(`x: ${X}, y:${Y}, direction: ${directionStr}`);
-        const coordinates = createShipCoords(types[i], X, Y, directionStr);
+        seed = [X, Y, types[i], directionStr];
+        coordinates = createShipCoords(types[i], X, Y, directionStr);
         returned = setPosition(types[i], coordinates);
         // console.log(`Returned: ${returned}`);
-        if (returned != null) {
-          positionCoordinates.push(...coordinates);
-        }
-      } while (returned == null);
+      } while (returned !== 1);
+      positionCoordinates.push(...coordinates);
+      seeds.push(seed);
     }
   }
 
@@ -109,7 +112,8 @@ const GameBoard = (testing) => {
 
   const reset = () => {
     positions = {};
-    positionCoordinates = [];
+    positionCoordinates.length = 0;
+    seeds.length = 0;
     attacks = {
       mis: [],
       hit: [],
@@ -126,6 +130,7 @@ const GameBoard = (testing) => {
     positions,
     ship,
     positionCoordinates,
+    seeds,
     receiveAttack,
     missedAttacks,
     allSunk,

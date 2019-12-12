@@ -37,8 +37,9 @@ function fireBoard(x, y, grid, hit) {
 function resetBoard(grid) {
   for (let i = 0; i < 10; i += 1) {
     for (let j = 0; j < 10; j += 1) {
-      grid.children[i].children[j].classList.remove('hitted');
-      grid.children[i].children[j].classList.remove('missed');
+      const item = grid.children[i].children[j];
+      item.className = '';
+      item.classList.add('grid-item');
     }
   }
 }

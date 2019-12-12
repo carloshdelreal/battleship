@@ -6,7 +6,7 @@ function boats() {
   const carrier = createDiv(['ship', 'carrier']);
   const submarine = createDiv(['ship', 'submarine']);
   const destroyer = createDiv(['ship', 'destroyer']);
-  const patrol = createDiv(['ship', 'patrol']);
+  const patrol = createDiv(['ship', 'patrolBoat']);
   rightCol.appendChild(battleship);
   rightCol.appendChild(carrier);
   rightCol.appendChild(submarine);
@@ -90,7 +90,7 @@ function winner() {
   const div = createElem('div', 'winner', ['popup']);
   const content = createDiv(['content']);
   const h4 = createElem('h4', '', ['title']);
-  h4.innerText = 'Congratulations You have one';
+  h4.innerText = 'Congratulations You Win!!';
   content.appendChild(h4);
   div.appendChild(content);
   return div;

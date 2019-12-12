@@ -89,7 +89,7 @@ button {
   background-image: url('./img/cruiser.png');
 }
 
-.patrol {
+.patrolBoat {
   background-image: url('./img/patrol-boat.png');
 }
 
@@ -146,7 +146,7 @@ $ship-loc-x: -6px;
   background-position-x: -$ship-size * 4 + $ship-loc-x;
 }
 
-// Patrol
+// Submarine
 $ship-loc-x: -17px;
 .submarine-sea {
   background-image: url('./img/submarine.png');
@@ -165,7 +165,7 @@ $ship-loc-x: -17px;
   background-position-x: -$ship-size * 2 + $ship-loc-x;
 }
 
-// Cruisier
+// Cruiser
 $ship-loc-x: 0px;
 .cruiser-sea {
   background-image: url('./img/cruiser.png');
@@ -187,20 +187,20 @@ $ship-loc-x: 0px;
 $ship-loc-x: 5px;
 
 // Patrol Boat
-.patrol-sea {
+.patrolBoat-sea {
   background-image: url('./img/patrol-boat.png');
   background-size: 65px;
   background-position-y: 3px;
 }
 
-.patrol-sea-1 {
+.patrolBoat-sea-1 {
   background-position-x: $ship-loc-x;
 }
-.patrol-sea-2 {
+.patrolBoat-sea-2 {
   background-position-x: -$ship-size * 1 + $ship-loc-x;
 }
 
-.patrol-sea-3 {
+.patrolBoat-sea-3 {
   background-position-x: -$ship-size * 2 + $ship-loc-x;
 }
 
@@ -231,8 +231,6 @@ $ship-loc-x: -6px;
   background-position-x: $ship-size * 1;
 }
 
-
-
 // Carrier
 .carrier-sea-v {
   background-image: url('./img/carrier.png');
@@ -256,7 +254,7 @@ $ship-loc-x: -6px;
   background-position-x: $ship-size * 2 + $ship-loc-x;
 }
 .carrier-sea-v-5 {
-  background-position-x: $ship-size * 1 ;
+  background-position-x: $ship-size * 1;
 }
 
 //Submarine V
@@ -266,18 +264,18 @@ $ship-loc-x: -17px;
   background-image: url('./img/submarine.png');
   background-size: 125px;
   background-position-y: -4px;
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 .submarine-sea-v-1 {
   background-position-x: $ship-loc-x;
 }
 .submarine-sea-v-2 {
-  background-position-x: $ship-size * 2 + $ship-loc-x;
+  background-position-x: $ship-size * 2;
 }
 
 .submarine-sea-v-3 {
-  background-position-x: $ship-size * 1 + $ship-loc-x;
+  background-position-x: $ship-size * 1;
 }
 
 // Cruisier
@@ -301,16 +299,16 @@ $ship-loc-x: 0px;
 }
 
 // Patrol Boat
-.patrol-sea-v {
+.patrolBoat-sea-v {
   background-image: url('./img/patrol-boat.png');
   background-size: 65px;
   background-position-y: 3px;
   transform: rotate(90deg);
 }
 
-.patrol-sea-v-1 {
+.patrolBoat-sea-v-1 {
   background-position-x: $ship-loc-x;
 }
-.patrol-sea-v-2 {
+.patrolBoat-sea-v-2 {
   background-position-x: -$ship-size * 1 + $ship-loc-x;
 }
